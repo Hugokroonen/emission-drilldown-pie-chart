@@ -6,7 +6,7 @@ This JavaScript file contains the logic to fetch emissions data and render a dri
 async function loadChartData() {
     try {
         // Fetch the emission data from emission_data json file
-        const response = await fetch('emission_Data.json');
+        const response = await fetch('emission_data.json');
         const data = await response.json();
 
         // Initialize arrays to store the main data (top-level) and detailed data (drilldown)
