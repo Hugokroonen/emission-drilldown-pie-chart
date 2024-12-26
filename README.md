@@ -8,5 +8,4 @@ Dit project visualiseert emissiedata met behulp van een **drilldown pie chart**.
 - **`piechart.js`**: JavaScript-bestand met de logica voor het laden van data en het weergeven van de grafiek.
 
 ## Live Demo
-Bekijk de drilldown pie chart live via GitHub Pages:  
 https://hugokroonen.github.io/emission-drilldown-pie-chart/
