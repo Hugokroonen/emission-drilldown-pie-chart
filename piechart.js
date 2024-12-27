@@ -9,8 +9,8 @@ async function loadChartData() {
         const response = await fetch('emission_data.json');
         const data = await response.json();
 
-        // Initialize arrays to store the main data (top-level) and detailed data (drilldown)
-        const topLevel = []; // This will hold overall scope data (e.g., Scope 1, Scope 2)
+        // Initialise arrays to store the main data (top-level) and detailed data (drilldown)
+        const topLevel = []; // This will hold overall scope data (Scope 1, Scope 2, Scope 3)
         const drilldownData = []; // This will hold data for categories and activities within scopes
 
         // Loop through each scope in the data
@@ -22,9 +22,9 @@ async function loadChartData() {
 
                 // Add detailed activity data for drilldown
                 drilldownData.push({
-                    id: `${scope}-${category}`, // Unique ID for drilldown, e.g., "Scope 1-1.1 - Stationary combustion"
-                    name: category, // The name of the category, e.g., "1.1 - Stationary combustion"
-                    data: activities // Detailed activity data, e.g., [["Activity 1", "348.22 tonnes CO2e"]]
+                    id: `${scope}-${category}`, // Unique ID for drilldown, e.g. "Scope 1-1.1 - Stationary combustion"
+                    name: category, // The name of the category, e.g. "1.1 - Stationary combustion"
+                    data: activities // Detailed activity data including emissions, e.g. [["Activity 1", "348.22 tonnes CO2e"]]
                 });
 
                 // Return category summary for the main chart
@@ -40,14 +40,14 @@ async function loadChartData() {
 
             // Add scope summary to the main chart data
             topLevel.push({
-                name: scope, // The name of the scope, e.g., "Scope 1"
+                name: scope, // The name of the scope
                 y: scopeTotal, // Total emissions for the scope
-                drilldown: scope // Link to drilldown data for this scope
+                drilldown: scope // Link to drilldown data for this scope (through the id)
             });
 
-            // Add scope-level drilldown data (list of categories)
+            // Add scope-level drilldown data 
             drilldownData.push({
-                id: scope, // Unique ID for the scope drilldown, e.g., "Scope 1"
+                id: scope, // Unique ID for the scope drilldown
                 name: scope, // The name of the scope
                 data: scopeCategories // List of categories and their totals within the scope
             });
@@ -91,7 +91,7 @@ async function loadChartData() {
                                 operator: '>',
                                 value: 5
                             },
-                            format: '{point.percentage:.1f}%', // Show percentage with one decimal place
+                            format: '{point.percentage:.1f}%', // Show percentage with one decimal 
                             style: {
                                 fontSize: '1em',
                                 textOutline: 'none' // Remove text outline for better readability
@@ -117,5 +117,5 @@ async function loadChartData() {
     }
 }
 
-// Call the function to load the chart data and render the chart
+// Call the function to load the data and render the pie chart
 loadChartData();
