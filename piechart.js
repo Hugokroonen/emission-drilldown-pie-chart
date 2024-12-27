@@ -1,6 +1,6 @@
 /*
 piechart.js:
-This JavaScript file contains the logic to fetch emissions data and render a drilldown pie chart.
+This JavaScript file contains the logic to fetch emissions data and create the drilldown pie chart.
 */
 
 async function loadChartData() {
